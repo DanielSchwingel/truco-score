@@ -64,5 +64,43 @@ export default StyleSheet.create({
         fontFamily: 'Quicksand-Bold',
         fontSize: 15,
         color: '#FFF'
+    },
+
+    containerModal:{
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    modal : {
+        width: 300,
+        height: 230,
+        backgroundColor: '#fff',
+        borderRadius: 15,
+    },
+
+    headerModal : {
+        backgroundColor: '#E82041',
+        height: 75,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: 15,
+        flexDirection: 'row'
+    },
+
+    bodyModal :{
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingBottom: 15,
+        alignItems:'center'
+    },
+
+    logoModal : {
+        width: 75,
+        height: 46.63,    
+    },
+    
+    inputModal : {
+        marginTop: 10,
+        alignItems: 'center'
     }
 })

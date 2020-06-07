@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Home from './pages/Home';
 import Score from './pages/Score';
+import Settings from './pages/Settings'
+import About from './pages/About';
 import Sidebar from './components/SideBar';
 
 const AppDrawer = createDrawerNavigator();
@@ -26,6 +28,8 @@ export default function Routes() {
             >
                 <AppDrawer.Screen name="Home" component={Home}/>
                 <AppDrawer.Screen name="Placar" component={Score} />
+                <AppDrawer.Screen name="Configurações" component={Settings} />
+                <AppDrawer.Screen name="Sobre" component={About} />
             </AppDrawer.Navigator>
         </NavigationContainer>
     );
