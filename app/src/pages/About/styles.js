@@ -18,10 +18,11 @@ export default StyleSheet.create({
         fontSize: 48,
         fontFamily: 'Quicksand-Bold',
         color: '#41414D',
+        marginBottom: 30
     },
 
     property : {
-        fontFamily: 'Quicksand-SemiBold',
+        fontFamily: 'Quicksand-Bold',
         fontSize: 20,
         color: '#41414D',
         marginTop: 15
@@ -29,7 +30,7 @@ export default StyleSheet.create({
 
     propertyValue : {
         fontFamily: 'Quicksand-SemiBold',
-        fontSize: 20,
+        fontSize: 18,
         color: '#737380',
         marginTop: 15
     },

@@ -16,15 +16,19 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 export default function Settings() {
     const [points, setPoints] = useState(12);
     const [name, setName] = useState('');
-    const [checked, setChecked] = useState(false);
+    const [light, setLight] = useState(false);
 
     const navigation = useNavigation();
 
     async function saveSettings() {
         try {
-            await AsyncStorage.setItem('@TRUCO_STORE:name', name);
-            // await AsyncStorage.setItem('@TRUCO_STORE:light', checked);
-            navigation.goBack();
+            const settings = {
+                name: name,
+                points: points,
+                light: light
+            }
+            await AsyncStorage.setItem('@TRUCO_STORE:settings', JSON.stringify(settings));
+            navigation.navigate('Placar');
         } catch (error) {
             alert(error);
         }
@@ -32,45 +36,52 @@ export default function Settings() {
 
     async function getSettings() {
         try {
-            setName(await AsyncStorage.getItem('@TRUCO_STORE:name'));
-        } catch (error) {
+            const jsonStr = await AsyncStorage.getItem('@TRUCO_STORE:settings')
+            const jsonValue = jsonStr != null ? JSON.parse(jsonStr) : null;
+            setPoints(jsonValue.points);
+            setName(jsonValue.name);
+            setLight(jsonValue.light);
+        } catch(error) {
             alert(error)
         }
-    }
+    }    
 
     useEffect(() =>{
         getSettings();
     }, []);
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container}  behavior='height'>
             <StatusBarPattern />
             <Header />
             <Text style={styles.title}>Configurações</Text>
             <View style={styles.body}>
-                <Text style={styles.property}>Pontuação final</Text>
-
-                
-                <Text style={styles.property}>Manter tela do ceular acessa</Text>
-                <View style={styles.checkContainer}>
-                <CheckBox
-                    value={checked}
-                    onValueChange={setChecked}
-                />
-                    <Text style={styles.propertyValue}>Sim</Text>
-                </View>
-                {/* <CheckBox
-                    disabled={false}
-                    value={toggleCheckBox}
-                    onValueChange={() => toggleCheckBox ? setToggleCheckBox(false) : setToggleCheckBox(true)}
-                /> */}
                 <Text style={styles.property}>Seu nome</Text>
                 <TextInput 
                     placeholder='Informe seu nome'
                     style={styles.propertyValue}
                     onChangeText={value => setName(value)}
                     value={name}
-                />         
+                />   
+                <Text style={styles.property}>Pontuação final</Text>
+                <View style={styles.propertyValueContainer} >
+                    <TouchableOpacity onPress={()=>{setPoints(points + 1)}}>
+                        <FontAwesome5 name={'chevron-up'} size={20} color='#E82041'/>
+                    </TouchableOpacity>
+                    <Text style={styles.propertyValue}>  {points}  </Text>
+                    <TouchableOpacity onPress={()=>{setPoints(points - 1)}}>
+                        <FontAwesome5 name={'chevron-down'} size={20} color='#E82041'/>
+                    </TouchableOpacity>
+                </View>
+                
+                <Text style={styles.property}>Manter tela do celular acessa</Text>
+                <View style={styles.propertyValueContainer}>
+                    <CheckBox
+                        value={light}
+                        onValueChange={setLight}
+                    />
+                    <Text style={styles.propertyValue}>Sim</Text>
+                </View>      
                 <TouchableOpacity style={styles.button} onPress={saveSettings}>
                     <FontAwesome5 name={'check'} size={28} color='#E82041'/>
                     <Text style={styles.buttonText}>Salvar</Text>

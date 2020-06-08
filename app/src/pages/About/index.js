@@ -12,7 +12,7 @@ export default function About (){
     const navigation = useNavigation();
 
     function navigateBack(){
-        navigation.goBack();
+        navigation.navigate('Placar');
     }
     return(
         <View style={styles.container}>

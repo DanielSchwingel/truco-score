@@ -52,18 +52,20 @@ export default StyleSheet.create({
     },
 
     button : {
-        width: '100%',
-        backgroundColor: '#E82041' ,
-        borderRadius: 8,
-        marginTop: 15,
+        justifyContent: 'center',
         alignItems: 'center',
-        padding: 3
+        marginTop: 20,
+        flexDirection: 'row',
+        backgroundColor: '#E82041',
+        padding: 10,
+        borderRadius: 15
     },
 
     textButton : {
         fontFamily: 'Quicksand-Bold',
-        fontSize: 15,
-        color: '#FFF'
+        fontSize: 20,
+        color: '#FFF',
+        marginLeft: 15,
     },
 
     containerModal:{
@@ -73,7 +75,7 @@ export default StyleSheet.create({
 
     modal : {
         width: 300,
-        height: 230,
+        height: 400,
         backgroundColor: '#fff',
         borderRadius: 15,
     },
@@ -81,7 +83,7 @@ export default StyleSheet.create({
     headerModal : {
         backgroundColor: '#E82041',
         height: 75,
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         padding: 15,
         flexDirection: 'row'
@@ -98,9 +100,9 @@ export default StyleSheet.create({
         width: 75,
         height: 46.63,    
     },
-    
-    inputModal : {
-        marginTop: 10,
-        alignItems: 'center'
+
+    animation:{
+        width: 100,
+        height: 150
     }
 })

@@ -18,24 +18,27 @@ export default StyleSheet.create({
         fontSize: 48,
         fontFamily: 'Quicksand-Bold',
         color: '#41414D',
+        marginBottom: 30
     },
 
     property : {
-        fontFamily: 'Quicksand-SemiBold',
+        fontFamily: 'Quicksand-Bold',
         fontSize: 20,
         color: '#41414D',
-        marginTop: 15
+        marginTop: 15,
+        marginBottom: 15
     },
 
     propertyValue : {
         fontFamily: 'Quicksand-SemiBold',
-        fontSize: 20,
-        color: '#737380',
+        fontSize: 18,
+        color: '#737380'
     },
 
     button : {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 120 
     },
 
     buttonText : {
@@ -45,7 +48,7 @@ export default StyleSheet.create({
         marginLeft: 10
     },
 
-    checkContainer : {
+    propertyValueContainer : {
         flexDirection: 'row',
         alignItems:'center'
     }
