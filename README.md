@@ -3,7 +3,7 @@
   Application for counting points of the game "Truco"
 </h4>
 <p align = "center">
-  <img alt = "Demo no Truco Score" src = "https://i.imgur.com/VKflgVX.gifv" width="210" height="400">
+  <img alt = "Demo no Truco Score" src = "https://i.imgur.com/VKflgVX.gif" width="210" height="400">
 </p>
 <h3>:muscle: Project</h3> 
 <p>The <b>Truco Score</b> was developed with the purpose of advancing the studies of React-Native.</p>
