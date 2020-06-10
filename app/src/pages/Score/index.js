@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Button, Image, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, Button, Image } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Modal from 'react-native-modal';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -18,7 +18,7 @@ export default function Score() {
     const [score2, setScore2] = useState(0);
     const [modalTeam1, setModalTeam1] = useState(false);
     const [modalTeam2, setModalTeam2] = useState(false);
-    const [maxPoints, setMaxPoints] = useState(12);
+    const [maxPoints, setMaxPoints] = useState(0);
 
     function addPoint(team) {
         if (team === 1){
@@ -57,11 +57,11 @@ export default function Score() {
 
     async function getSettings(){
         try {
-            const jsonStr = await AsyncStorage.getItem('@TRUCO_STORE:settings')
+            const jsonStr = await AsyncStorage.getItem('@TRUCO_STORE:settings')    
             const jsonValue = jsonStr != null ? JSON.parse(jsonStr) : null;
-            setMaxPoints(jsonValue.points);
+            setMaxPoints(jsonValue.points);           
         } catch(error) {
-            alert(error)
+            setMaxPoints(12);
         }
     }
 

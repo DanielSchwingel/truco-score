@@ -24,8 +24,7 @@ export default function Settings() {
         try {
             const settings = {
                 name: name,
-                points: points,
-                light: light
+                points: points
             }
             await AsyncStorage.setItem('@TRUCO_STORE:settings', JSON.stringify(settings));
             navigation.navigate('Placar');
@@ -40,9 +39,8 @@ export default function Settings() {
             const jsonValue = jsonStr != null ? JSON.parse(jsonStr) : null;
             setPoints(jsonValue.points);
             setName(jsonValue.name);
-            setLight(jsonValue.light);
         } catch(error) {
-            alert(error)
+            setPoints(12);
         }
     }    
 
@@ -72,15 +70,6 @@ export default function Settings() {
                     <TouchableOpacity onPress={()=>{setPoints(points - 1)}}>
                         <FontAwesome5 name={'chevron-down'} size={20} color='#E82041'/>
                     </TouchableOpacity>
-                </View>
-                
-                <Text style={styles.property}>Manter tela do celular acessa</Text>
-                <View style={styles.propertyValueContainer}>
-                    <CheckBox
-                        value={light}
-                        onValueChange={setLight}
-                    />
-                    <Text style={styles.propertyValue}>Sim</Text>
                 </View>      
                 <TouchableOpacity style={styles.button} onPress={saveSettings}>
                     <FontAwesome5 name={'check'} size={28} color='#E82041'/>
